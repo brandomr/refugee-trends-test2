@@ -1,0 +1,23 @@
+step: 1
+name: refugee-trends-test2
+docker_image: refugee-trends-test2:latest
+framework: !!python/object/apply:mic.constants.Framework
+- !!python/tuple
+  - general
+  - mintproject/generic:latest
+container_name: refugee-trends-test2_d1983f90
+inputs:
+  refugee_trends_file:
+    path: Migration_GTrends.csv
+    format: csv
+code_files:
+  model_r:
+    path: model.R
+    format: R
+outputs:
+  accuracy_csv:
+    path: accuracy.csv
+    format: csv
+  rplots_pdf:
+    path: Rplots.pdf
+    format: pdf
